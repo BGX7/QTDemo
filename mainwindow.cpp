@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
 QMainWindow(parent),
@@ -23,6 +24,8 @@ ui(new Ui::MainWindow)
     connect(ui->buttonCapture, SIGNAL(clicked()), this, SLOT(captureImage()));
     connect(ui->buttonSave, SIGNAL(clicked()), this, SLOT(saveImage()));
     connect(ui->buttonExit, SIGNAL(clicked()), qApp, SLOT(quit()));
+
+    connect(ui->actionContact_US,SIGNAL(triggered()),this,SLOT(triggerContact()));
 }
 
 MainWindow::~MainWindow()
@@ -56,4 +59,6 @@ const QPixmap* pixmap=ui->ImageCapture->pixmap();
         pixmap->save(fileName);
         ui->statusBar->showMessage(tr("save OK"), 5000);
     }
+}
+void MainWindow::triggerContact(){
 }

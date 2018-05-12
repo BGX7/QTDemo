@@ -15,6 +15,7 @@ class MainWindow;
 class QCamera;
 class QCameraViewfinderSettings;
 class QCameraImageCapture;
+class aboutDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -31,10 +32,17 @@ private:
     QCameraViewfinder *viewfinder;
     QCameraImageCapture *imageCapture;
 
+    aboutDialog *about;
+
 private slots:
     void captureImage();
     void displayImage(int,QImage);
     void saveImage();
+    void triggerContact();
+
+signals:
+    void showabout();
+
 
 };
 
